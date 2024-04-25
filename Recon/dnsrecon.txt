@@ -1,0 +1,5 @@
+[*] std: Performing General Enumeration against: demo.testfire.net...
+[-] DNSSEC is not configured for demo.testfire.net
+[*] 	 A demo.testfire.net 65.61.137.117
+[*] Enumerating SRV Records
+[-] No SRV Records Found for demo.testfire.net
